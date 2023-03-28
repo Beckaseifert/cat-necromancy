@@ -1,0 +1,32 @@
+<style>
+  body {
+    	background-color: rgb(61, 52, 90);
+  }
+  .rbutton{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    
+  }
+  
+</style>
+<button class="rbutton">click for tone</button>
+
+
+
+<script src="https://tonejs.github.io/build/Tone.js"></script>
+<script>
+  /* global Tone */
+
+  function playTone () {
+    // create a tone.js "synth"
+    const synth = new Tone.Synth().toDestination()
+    // trigger the sound for the length of an 8th note
+    synth.triggerAttackRelease('C4', '8n')  
+  }
+  
+  const button = document.querySelector('button')
+  button.addEventListener('click', playTone)
+
+
+</script>
