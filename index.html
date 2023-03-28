@@ -1,16 +1,24 @@
 <style>
   body {
     	background-color: rgb(61, 52, 90);
+    	   
   }
   .rbutton{
     position: absolute;
     right: 0;
     bottom: 0;
-    
+    margin: 0;
+    padding: 0;
+    border: none;
   }
   
-</style>
-<button class="rbutton">click for tone</button>
+</style>  
+
+<img id="image1" src="https://github.com/Beckaseifert/cat-necromancy/blob/main/unnamed.png?raw=true" />
+
+<button class="rbutton">
+	<img src="https://github.com/Beckaseifert/cat-necromancy/blob/main/unnamed.gif?raw=true"/>
+</button>
 
 
 
@@ -27,6 +35,35 @@
   
   const button = document.querySelector('button')
   button.addEventListener('click', playTone)
+  
+  
+  
+  
+  
+  
+  let image = document.getElementById('image1')
+
+let images = []
+for (let i = 0; i < 10; i++) {
+  let copy = image.cloneNode(true)
+  copy.style.position = 'absolute'
+  copy.style.top = '${e.x}px'
+  copy.style.left = '${e.y}px'
+  document.body.appendChild(copy)
+  images.push(copy)
+}
+
+
+document.addEventListener('mousemove', function(event) {
+  let mouseX = event.clientX
+  let mouseY = event.clientY
+  for (let i = 0; i < images.length; i++) {
+    images[i].style.top = mouseY + 'px'
+    images[i].style.left = mouseX + 'px'
+    mouseX += 10; 
+  }
+});
+
 
 
 </script>
